@@ -3,9 +3,9 @@
 #include <string.h>
 
 int main(){
-	std::cout << "Declaring String1[] = \"No man is an island\"...\n";
+	std::cout << "Declaring char String1[] = \"No man is an island\"...\n";
 	char String1[] = "No man is an island";
-	std::cout << "Declaring String2[80]...\n";
+	std::cout << "Declaring char String2[80]...\n";
 	char String2[80];
 	std::cout << "Using strcpy(String2, String1)...\n";
 	strcpy(String2, String1);
