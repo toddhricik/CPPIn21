@@ -1,9 +1,9 @@
-// Listing 13.8 - Demonstrates an array of objects on the heap
+// Listing 13.6 - Demonstrates an array of pointers to objects
 #include <iostream>
 class Cat{
 	public:
 		Cat() { itsAge = 1; itsWeight = 5; }
-		~Cat() { std::cout << "Destructor ~Cat() called...\n"; }
+		~Cat() {}
 		int GetAge() const { return itsAge; }
 		int GetWeight() const { return itsWeight; }
 		void SetAge(int age) { itsAge = age; }
@@ -12,14 +12,17 @@ class Cat{
 		int itsWeight;
 };
 int main(){
-	Cat * Family = new Cat[500];
+	Cat * Family[500];
 	int i;
-	for(i=0; i<500; i++)
-		Family[i].SetAge(2*i+1);
+	Cat *pCat;
+	for(i=0; i<500; i++){
+		pCat = new Cat;
+		pCat->SetAge(2*i+1);
+		Family[i] = pCat;
+	}
 	for(i=0; i<500; i++){
 		std::cout << "Cat #" << i+1 << ": ";
-		std::cout << Family[i].GetAge() << std::endl;
+		std::cout << Family[i]->GetAge() << std::endl;
 	}
-	delete [] Family;
 	return 0;
 }
