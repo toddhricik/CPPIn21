@@ -19,7 +19,7 @@ int main(){
 	return 0;
 }
 bool GetWord(char * theString, char * word, int & wordOffset){
-	if(theString[wordOffset] == 0)
+	if(theString[wordOffset] == '\0')
 		return false;
 	
 	char * p1, * p2;
