@@ -73,7 +73,6 @@ int main(){
 						break;
 			default:	std::cout << "Please enter a number between 0 and 3\n";
 						continue;
-						break;
 		}
 		if(!fQuit)
 			sp->Draw();
