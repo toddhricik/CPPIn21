@@ -1,12 +1,13 @@
-// Listing 15.8 - Passing pointers to functions as function arguments
+// Listing 15.9 - Using typdef to make pointers to functions as function arguments more readable
 #include <iostream>
 void Square(int&, int&);
 void Cube(int&, int&);
 void Swap(int&, int&);
 void GetVals(int&, int&);
-void PrintVals(void (*)(int&, int&), int, int);
+typedef void (*VPF)(int &, int &);
+void PrintVals(VPF, int, int);
 int main(){
-	void (* pFunc)(int &, int &);
+	VPF pFunc;
 	bool fQuit = false;
 	int valOne = 1;
 	int valTwo = 2;
@@ -31,7 +32,7 @@ int main(){
 	}
 	return 0;
 }
-void PrintVals(void (*pFunc)(int&, int&), int x, int y){
+void PrintVals(VPF pFunc, int x, int y){
 	std::cout << "x: " << x << " y: " << y << std::endl;
 	pFunc(x, y);
 	std::cout << "x: " << x << " y: " << y << std::endl;
