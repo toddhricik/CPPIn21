@@ -3,9 +3,9 @@
 #include <string.h>
 class String{
 	public:
-		String();
-		String(const char * const);
-		String(const String &);
+		String();								// default constructor
+		String(const char *);							// converts c-style string to String string
+		String(const String &);							// copy constructor
 		~String();
 		// overloaded operators
 		char & operator[](int offset);
@@ -18,7 +18,7 @@ class String{
 		const char * GetString() const { return itsString; }
 		// static int ConstructorCount;
 	private:
-		String(int);											// private constructor
+		String(int);								// private constructor
 		char *itsString;
 		unsigned short itsLen;
 };
@@ -28,6 +28,16 @@ String::String(){
 	itsString[0] = '\0';
 	itsLen = 0;
 	// std::cout << "\tDefault string constructor\n";
+	// ConstructorCount++;
+}
+// Converst c-style string to String string
+String::String(const char * const cString){
+	itsLen = strLen(cString);
+	itsSTring = new char[itsLen+1];
+	for(int i=0; i<itsLen; i++)
+		itString[i] = cString[i];
+	itsString[itsLen] = '\0';
+	// std::cout << "\tString(char*) constructor\n";
 	// ConstructorCount++;
 }
 // private (helper) constructor, used only by
