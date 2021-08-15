@@ -4,7 +4,7 @@
 class String{
 	public:
 		String();								// default constructor
-		String(const char *);							// converts c-style string to String string
+		String(const char * const);						// converts c-style string to String string
 		String(const String &);							// copy constructor
 		~String();
 		// overloaded operators
@@ -32,10 +32,10 @@ String::String(){
 }
 // Converst c-style string to String string
 String::String(const char * const cString){
-	itsLen = strLen(cString);
-	itsSTring = new char[itsLen+1];
+	itsLen = strlen(cString);
+	itsString = new char[itsLen+1];
 	for(int i=0; i<itsLen; i++)
-		itString[i] = cString[i];
+		itsString[i] = cString[i];
 	itsString[itsLen] = '\0';
 	// std::cout << "\tString(char*) constructor\n";
 	// ConstructorCount++;
