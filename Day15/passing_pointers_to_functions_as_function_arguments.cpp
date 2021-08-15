@@ -1,4 +1,4 @@
-// Listing 15.8 - Demonstrates passing pointers to functions as function arguments
+// Listing 15.8 - Passing pointers to functions as function arguments
 #include <iostream>
 void Square(int&, int&);
 void Cube(int&, int&);
