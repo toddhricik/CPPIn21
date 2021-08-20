@@ -1,7 +1,6 @@
 // Listing 17.17 - Appeding to the end of a file using fstream objects
 #include <fstream>
 #include <iostream>
-//#include <iomanip>
 
 int main(){
 	char fileName[80];
