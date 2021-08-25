@@ -23,7 +23,7 @@ class Array{
 		T & operator[](int offSet) { return pType[offSet]; }
 		const T& operator[](int offSet) const { return pType[offSet]; }
 		int GetSize() const { return itsSize; }
-		//template <class T>												// uncomment this line if you are using Microsoft C++ compiler
+		template <class T>												// uncomment this line if you are using Microsoft C++ compiler
 		friend std::ostream& operator<<(std::ostream&, Array<T> &);
 	private:
 		T *pType;
