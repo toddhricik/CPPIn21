@@ -24,13 +24,13 @@ class Array{
 		const T& operator[](int offSet) const { return pType[offSet]; }
 		int GetSize() const { return itsSize; }
 		//template <class T>												// uncomment this line if you are using Microsoft C++ compiler
-		friend ostream& operator<<(ostream&, Array<T> &);
+		friend std::ostream& operator<<(std::ostream&, Array<T> &);
 	private:
 		T *pType;
 		int itsSize;
 };
 template <class T>
-ostream& Array<T>::operator<<(ostream &output, Array<T> &theArray){i
+std::ostream& operator<<(std::ostream &output, Array<T> &theArray){
 	for(int i=0; i<theArray.itsSize; i++)
 		output << "[" << i << "] " << theArray[i] << std::endl;
 	return output;
